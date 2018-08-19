@@ -6,19 +6,19 @@ Lo primero es crear la estructura para trabajar. Por ello el primer paso es crea
 
 ## API (Readme)
 
-+ 4.1 GET     _______/daily?user=_____ 
++ 4.1 GET     _-----/daily?user=----_ 
 Request:
 Response: { "User": "someone", "Date": "Someday", "Content": "something", "Status": OK }
 
-+ 4.2 PUT      _______/daily?user=_____
++ 4.2 PUT      _-----/daily?user=----_
 Request: { "Date": "someday", "Content": "something" }
 Response: { "Status": OK }
 
-+ 4.3 DELETE _______/daily?user=____&date=____ 
++ 4.3 DELETE _-----/daily?user=----&date=----_ 
 Request:
 Response: { "Status": OK }
 
-+ 4.4 POST     _______/daily?user=_____ 
++ 4.4 POST     _-----/daily?user=----_ 
 Request: { "Content": "something" }
 Response: { "Status": OK }
 
