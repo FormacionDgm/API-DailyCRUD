@@ -32,7 +32,7 @@ UAT
 3. Se debe preparar un esquema de la estructura para esta iteración, no importa que sea complejo pero tiene que haber un análisis SIEMPRE.
 
 4. A continuación vienen las acciones que se deben poder realizar contra la API*:<br>
-    4.1 Un usuario puede acceder a una daily concreta
-    4.2 Un usuario puede actualizar un content
-    4.3 Un usuario puede borrar un registro
-    4.4 Un usuario puede agregar una daily
+    4.1 Un usuario puede acceder a una daily concreta<br>
+    4.2 Un usuario puede actualizar un content<br>
+    4.3 Un usuario puede borrar un registro<br>
+    4.4 Un usuario puede agregar una daily<br>
