@@ -1,7 +1,7 @@
 package com.formacion.iteracionAPP.Entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+
 
 @Entity
 @Table(name = "dailies")
@@ -23,7 +25,7 @@ public class Daily implements Serializable {
 	private String user;
 	private String content;
 	@Temporal(TemporalType.DATE)
-	private LocalDate date;
+	private Date date;
 
 	/* Construct */
 	public Daily() {
@@ -61,16 +63,13 @@ public class Daily implements Serializable {
 		this.content = content;
 	}
 
-	public LocalDate getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
-	public void setDate() {
-		this.date = LocalDate.now();
-	}
 
 }
