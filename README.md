@@ -2,22 +2,22 @@
 
 ## API (Readme)
 
-+ 4.1 GET     _-----/daily?user=----_ 
-Request:
-Response: _{ "User": "someone", "Date": "Someday", "Content": "something", "Status": OK }_
-
-+ 4.2 PUT      _-----/daily?user=----_
-Request: _{ "Date": "someday", "Content": "something" }_
-Response: _{ "Status": OK }_
-
-+ 4.3 DELETE _-----/daily?user=----&date=----_ 
-Request:
-Response: _{ "Status": OK }_
-
-+ 4.4 POST     _-----/daily?user=----_ 
-Request: _{ "Content": "something" }_
-Response: _{ "Status": OK }_
-
++ 4.1 GET     _-----/daily?user=----_ <br>
+Request:<br>
+Response: _{ "User": "someone", "Date": "Someday", "Content": "something", "Status": OK }_<br>
+<br>
++ 4.2 PUT      _-----/daily?user=----_<br>
+Request: _{ "Date": "someday", "Content": "something" }_<br>
+Response: _{ "Status": OK }_<br>
+<br>
++ 4.3 DELETE _-----/daily?user=----&date=----_ <br>
+Request:<br>
+Response: _{ "Status": OK }_<br>
+<br>
++ 4.4 POST     _-----/daily?user=----_ <br>
+Request: _{ "Content": "something" }_<br>
+Response: _{ "Status": OK }_<br>
+<br>
 ## UAT
 
 1.  Por el momento no es necesario poder hacer login
