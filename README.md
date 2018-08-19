@@ -1,8 +1,4 @@
 # API-DailyCRUD
-## Estructura del proyecto
-
-Lo primero es crear la estructura para trabajar. Por ello el primer paso es crear una organización en github.
-+ https://help.github.com/articles/creating-a-new-organization-from-scratch/
 
 ## API (Readme)
 
@@ -22,9 +18,8 @@ Response: _{ "Status": OK }_
 Request: _{ "Content": "something" }_
 Response: _{ "Status": OK }_
 
-## Iteración 1
+## UAT
 
-UAT
 1.  Por el momento no es necesario poder hacer login
 
 2. El proyecto debe tener Readme (más abajo defino lo que tiene que haber) y un .gitignore usa los gitignore de java,    intellij y maven de la siguiente página https://github.com/github/gitignore
