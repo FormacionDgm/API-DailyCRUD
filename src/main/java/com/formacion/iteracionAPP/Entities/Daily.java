@@ -73,4 +73,10 @@ public class Daily implements Serializable {
 		System.out.println( "Content: \t"+ this.getContent() );
 		System.out.println( "Date: \t"+ this.getDailyIdentify().getDate() );
 	}
+	public String dailyToScreen() {
+		return 	"<p>\nUser: \t"+ this.getDailyIdentify().getUser() +
+				"\nContent: \t"+ this.getContent()+
+				"\nDate: \t"+ this.getDailyIdentify().getDate() +
+				"</p>";
+	}
 }

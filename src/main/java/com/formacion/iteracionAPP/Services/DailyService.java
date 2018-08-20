@@ -25,6 +25,8 @@ public class DailyService implements DailyServiceInterface {
 		}
 		return saveDone;
 	}
+
+
 	
 	
 }
