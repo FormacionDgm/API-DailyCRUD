@@ -26,19 +26,17 @@ public class iteracionAppController {
 	private DailyService dailyService;
 
 	@RequestMapping(value = "/daily", method = RequestMethod.POST)
-	public String newDailyUser(@RequestParam(value = "user", required = true) String user,
+	public ResponseDTO newDailyUser(@RequestParam(value = "user", required = true) String user,
 			@RequestBody RequestContent content) {
 		ResponseDTO responseDTO;
-		String estado = "Error al guardar Daily.";
-		System.out.println("Request Body: " + content);
 		Daily daily = new Daily(new DailyIdentify(user, CommonServices.getDateNow()), content.getContent());
 		if (dailyService.addDaily(daily)) {
 			responseDTO = new ResponseDTO(Status.OK);
 		} else {
 			responseDTO = new ResponseDTO(Status.FAIL);
 		}
-
-		return responseDTO.toString();
+		
+		return responseDTO;
 	}
 
 }

@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 public class ResponseDTO {
 
 	private Status status;
-	
+
 	@Override
 	public String toString() {
-		return this.status.getDescription();
+		return "Status : " + this.status.getDescription();
 	}
 }
