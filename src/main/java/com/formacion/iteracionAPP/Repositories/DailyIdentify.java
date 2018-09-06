@@ -1,6 +1,8 @@
 package com.formacion.iteracionAPP.Repositories;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Embeddable;
 import javax.persistence.Temporal;

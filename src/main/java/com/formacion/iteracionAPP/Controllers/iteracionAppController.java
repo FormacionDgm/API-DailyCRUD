@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.formacion.iteracionAPP.Entities.Daily;
 import com.formacion.iteracionAPP.Repositories.DailyIdentify;
 import com.formacion.iteracionAPP.Services.DailyService;
+import com.formacion.iteracionAPP.dto.RequestContent;
+import com.formacion.iteracionAPP.dto.ResponseDTO;
+import com.formacion.iteracionAPP.dto.model.CommonServices;
+import com.formacion.iteracionAPP.dto.model.Status;
 
 @RestController
 
@@ -22,20 +26,19 @@ public class iteracionAppController {
 	private DailyService dailyService;
 
 	@RequestMapping(value = "/daily", method = RequestMethod.POST)
-
-	public String newDailyUser(
-			@RequestBody String content, 
-			@RequestParam(value = "user", required = true) String user
-			){
+	public String newDailyUser(@RequestParam(value = "user", required = true) String user,
+			@RequestBody RequestContent content) {
+		ResponseDTO responseDTO;
 		String estado = "Error al guardar Daily.";
-		Date date = new Date();
-		Daily daily = new Daily(new DailyIdentify(user, date), content);
-		daily.printDaily();
-		if (dailyService.addDaily(daily)) 
-			{
-			estado = "OK, se ha guardado con éxito";
-			}
-		return estado;
+		System.out.println("Request Body: " + content);
+		Daily daily = new Daily(new DailyIdentify(user, CommonServices.getDateNow()), content.getContent());
+		if (dailyService.addDaily(daily)) {
+			responseDTO = new ResponseDTO(Status.OK);
+		} else {
+			responseDTO = new ResponseDTO(Status.FAIL);
+		}
+
+		return responseDTO.toString();
 	}
-	
+
 }
