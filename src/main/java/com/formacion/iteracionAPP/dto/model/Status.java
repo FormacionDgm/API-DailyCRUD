@@ -2,7 +2,8 @@ package com.formacion.iteracionAPP.dto.model;
 
 public enum Status {
 	OK ("ok"),
-	FAIL("Fail!");
+	FAIL("Fail!"),
+	NOT_FOUND("Not found!");
 	
 	
 	private final String description;

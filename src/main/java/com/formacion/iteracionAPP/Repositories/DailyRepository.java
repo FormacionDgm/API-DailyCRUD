@@ -16,7 +16,7 @@ public interface DailyRepository extends JpaRepository<Daily, DailyIdentify> {
 //	Optional<Daily> findByEmbeddedId(String user, Date date);
 
 	@Transactional
-	Optional<Daily> findByDailyIdentifyUserAndDailyIdentifyDate(String user, Date date);
+	Daily findByDailyIdentifyUserAndDailyIdentifyDate(String user, Date date);
 //	
 //	@Transactional
 //	<S extends Daily> S save(S daily);

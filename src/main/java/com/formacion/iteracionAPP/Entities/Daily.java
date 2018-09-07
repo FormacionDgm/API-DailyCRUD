@@ -38,6 +38,11 @@ public class Daily implements Serializable {
 		this.content = content;
 	}
 
+	public Daily(String user,Date date) {
+		this.dailyIdentify.setUser(user);
+		this.dailyIdentify.setDate(date);
+	}
+	
 	public DailyIdentify getDailyIdentify() {
 		return dailyIdentify;
 	}
@@ -54,6 +59,21 @@ public class Daily implements Serializable {
 		this.content = content;
 	}
 
+	public void setUser(String user) {
+		this.dailyIdentify.setUser(user);
+	}
+	
+	public String getUser() {
+		return this.dailyIdentify.getUser();
+	}
+	
+	public void setDate(Date date) {
+		this.dailyIdentify.setDate(date);
+	}
+	
+	public Date getDate() {
+		return this.dailyIdentify.getDate();
+	}
 //	public void printDaily() {
 //		System.out.println("User: \t" + this.getDailyIdentify().getUser());
 //		System.out.println("Content: \t" + this.getContent());

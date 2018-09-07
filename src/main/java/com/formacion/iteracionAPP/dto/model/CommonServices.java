@@ -11,4 +11,5 @@ public abstract class CommonServices {
 		Calendar cal = Calendar.getInstance();
 		return cal.getTime();
 	}
+	
 }
