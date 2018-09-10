@@ -7,17 +7,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.bind.annotation.RestController;
 
-import com.formacion.iteracionAPP.Entities.Daily;
-import com.formacion.iteracionAPP.Repositories.DailyIdentify;
+
 import com.formacion.iteracionAPP.Services.DailyService;
 import com.formacion.iteracionAPP.dto.RequestContent;
+import com.formacion.iteracionAPP.dto.RequestDateContent;
 import com.formacion.iteracionAPP.dto.ResponseDTO;
 import com.formacion.iteracionAPP.dto.ResponseFullDTO;
-import com.formacion.iteracionAPP.dto.model.CommonServices;
-import com.formacion.iteracionAPP.dto.model.Status;
+
 
 @RestController
 
@@ -27,16 +26,13 @@ public class iteracionAppController {
 	private DailyService dailyService;
 
 	@RequestMapping(value = "/daily", method = RequestMethod.POST)
-	public ResponseDTO newDailyUser(@RequestParam(value = "user", required = true) String user,
-			@RequestBody RequestContent content) {
-		ResponseDTO responseDTO;
-		Daily daily = new Daily(new DailyIdentify(user, CommonServices.getDateNow()), content.getContent());
-		if (dailyService.addDaily(daily)) {
-			responseDTO = new ResponseDTO(Status.OK);
-		} else {
-			responseDTO = new ResponseDTO(Status.FAIL);
-		}
+	public ResponseDTO newDailyUser(
+			@RequestParam(value = "user", required = true) String user,
+			@RequestBody RequestContent content) 
+	{
 		
+		//Daily daily = new Daily(user, CommonServices.getDateNow(), content.getContent());
+		ResponseDTO responseDTO =  dailyService.addDailyWithUser(user, content);
 		return responseDTO;
 	}
 	
@@ -46,6 +42,17 @@ public class iteracionAppController {
 			@RequestParam(required = true) Date date) 
 	{
 		ResponseFullDTO responseDto = dailyService.getDaily(user, date);
+		return responseDto;
+	}
+	
+	@RequestMapping(value="/daily", method = RequestMethod.PUT)
+	public ResponseDTO updateDaily(
+			@RequestParam(value ="user",required = true) String user,
+			@RequestParam(value = "date") Date date,
+			@RequestBody RequestDateContent updateContent
+			)
+	{
+		ResponseDTO	responseDto = dailyService.updateDaily(user, date, updateContent);
 		return responseDto;
 	}
 
