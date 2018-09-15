@@ -1,8 +1,9 @@
 package com.formacion.iteracionAPP.Entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,46 +12,38 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.lang.NonNull;
+
+import com.formacion.iteracionAPP.Repositories.DailyIdentify;
+import com.formacion.iteracionAPP.dto.model.Status;
+
 @Entity
 @Table(name = "dailies")
 public class Daily implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	@EmbeddedId
+	private DailyIdentify dailyIdentify;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	private String user;
+	@NonNull
 	private String content;
-	@Temporal(TemporalType.DATE)
-	private LocalDate date;
 
+	
 	/* Construct */
 	public Daily() {
-		super();
 
 	}
 
-	public Daily(String user, String content) {
-		super();
-		this.user = user;
+	public Daily(DailyIdentify dailyIdentify, String content) {
+		this.dailyIdentify = dailyIdentify;
 		this.content = content;
 	}
 
-	public long getId() {
-		return id;
+	public DailyIdentify getDailyIdentify() {
+		return dailyIdentify;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
+	public void setDaiylyIdentify(DailyIdentify dailyIdentify) {
+		this.dailyIdentify = dailyIdentify;
 	}
 
 	public String getContent() {
@@ -61,16 +54,14 @@ public class Daily implements Serializable {
 		this.content = content;
 	}
 
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
-	public void setDate() {
-		this.date = LocalDate.now();
-	}
-
+//	public void printDaily() {
+//		System.out.println("User: \t" + this.getDailyIdentify().getUser());
+//		System.out.println("Content: \t" + this.getContent());
+//		System.out.println("Date: \t" + this.getDailyIdentify().getDate());
+//	}
+//
+//	public String dailyToScreen() {
+//		return "<p>\nUser: \t" + this.getDailyIdentify().getUser() + "\nContent: \t" + this.getContent() + "\nDate: \t"
+//				+ this.getDailyIdentify().getDate() + "</p>";
+//	}
 }
