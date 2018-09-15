@@ -15,6 +15,7 @@ import com.formacion.iteracionAPP.Repositories.DailyIdentify;
 import com.formacion.iteracionAPP.Services.DailyService;
 import com.formacion.iteracionAPP.dto.RequestContent;
 import com.formacion.iteracionAPP.dto.ResponseDTO;
+import com.formacion.iteracionAPP.dto.ResponseFullDTO;
 import com.formacion.iteracionAPP.dto.model.CommonServices;
 import com.formacion.iteracionAPP.dto.model.Status;
 
@@ -37,6 +38,15 @@ public class iteracionAppController {
 		}
 		
 		return responseDTO;
+	}
+	
+	@RequestMapping(value = "/daily" , method = RequestMethod.GET)
+	public ResponseFullDTO getDaily(
+			@RequestParam(required = true) String user,
+			@RequestParam(required = true) Date date) 
+	{
+		ResponseFullDTO responseDto = dailyService.getDaily(user, date);
+		return responseDto;
 	}
 
 }
